@@ -1,6 +1,5 @@
-// Import the functions you need from the SDKs you need
-
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -14,6 +13,9 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-const db = getFirestore(firebaseApp);
+const firebase_db = getFirestore(firebaseApp);
+const firebase_auth = getAuth(firebaseApp);
+// const firebase_storage = firebase.storage();
+// const firebase_auth = firebase.
 
-export { firebaseApp, db };
+export { firebase_db, firebase_auth };

@@ -1,16 +1,27 @@
-import { collection, addDoc, doc, setDoc, query, where, getDocs, updateDoc, deleteDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  doc,
+  setDoc,
+  query,
+  where,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
 import { v4 as uuidv4 } from "uuid";
-import { db } from "../firebase_init";
+import { firebase_db } from "../firebase_init";
 
 class CarDBServices {
   async addCarDoc() {
+    console.log("creating car ");
     try {
       let carUid = uuidv4();
 
-      const newDocRef = doc(collection(db, "Cars")); // Reference to the "Cars" collection
+      const docRef = doc(collection(firebase_db, "Cars"));
 
-      await setDoc(newDocRef, {
-        doc_ref: newDocRef.id,
+      await setDoc(docRef, {
+        doc_ref: docRef.id,
         name: "Nisan GTR",
         yearModel: "2024",
         seats: 4,
@@ -29,7 +40,7 @@ class CarDBServices {
         carId: carUid,
       });
 
-      console.log("Car Added with doc ref : ", newDocRef.id);
+      console.log("Car Added with doc ref : ", docRef.id);
     } catch (e) {
       console.log("error while adding car : " + e);
     }
