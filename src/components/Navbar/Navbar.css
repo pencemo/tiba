@@ -1,0 +1,228 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.Navbar{
+    /* background-color: rgb(180, 180, 180); */
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    transition: all .5s;
+    padding-top: 50px;
+    z-index: 20;
+    animation: nav 2.5s backwards;
+}
+@keyframes nav {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    
+}
+
+.navlink{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding:  0 30px; */
+}
+.logo{
+    width: 150px;
+}
+.logo img{
+    width: 100%;
+}
+.navlink ul{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 25px;
+}
+.navlink ul li a{
+    font-size: 18px;
+    color: #fff;
+    position: relative;
+    font-weight: 400;
+    /* padding: 3px 8px; */
+    border-radius: 5px;
+}
+.navlink ul li a::before{
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    bottom: -5px;
+    transition: all .2s;
+}
+.navlink ul li a:hover::before{
+    width: 100%;
+}
+
+.navlink ul li .active::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #fff;
+    bottom: -5px;
+    transition: all .2s;
+}
+
+.navscroll{
+    background-color: var(--color-blue-300);
+    padding: 10px 0;
+    box-shadow: 0 0 10px #00000056;
+}
+
+.navbtn{
+    display: none;
+    color: rgb(255, 255, 255);
+    background-color: #ffffff10;
+    border-radius: 50%;
+    background-size: 20px;
+    z-index: 21;
+}
+.navbtns{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.bg{
+    display: none;
+}
+
+.sign{
+    color: #fff;
+}
+
+.nav-logo{
+    display: none;
+}
+
+
+
+@media (max-width: 768px){
+
+    .logo{
+        width: 150px;
+    }
+    .navbtn{
+        display: flex;
+    }
+    .navlink ul{
+        z-index: 20;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* justify-content: center; */
+        padding-top: 80px;
+        gap: 20px;
+        background-color: var(--color-blue-200);
+        top: 0;
+        right: 0;
+        width: 250px;
+        height: 100vh;
+        transition: all .6s ease-in-out;
+        clip-path: circle(0% at 80% 5%);
+    }
+    .navlink ul li{
+        transform: translateX(80px);
+        transition: all 1s;
+        opacity: 0;
+        /* align-self: self-start; */
+    }
+    .navlink ul li a{
+        font-weight: 500;
+        font-size: 23px;
+
+    }
+    .navlink ul li:nth-child(1){
+        transition-delay: 200ms;
+    }
+    .navlink ul li:nth-child(2){
+        transition-delay: 250ms;
+    }
+    .navlink ul li:nth-child(3){
+        transition-delay: 300ms;
+    }
+    .navlink ul li:nth-child(4){
+        transition-delay: 350ms;
+    }
+    .navlink ul li:nth-child(5){
+        transition-delay: 400ms;
+    }
+
+
+    .navlink .navactiv{
+        right: 0;
+        clip-path: circle(100% at 64% 30%);
+    }
+    .navlink .navactiv li{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+    .bg{
+        display: block;
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.63);
+        inset: 0;
+        visibility: hidden;
+        cursor: pointer;
+        opacity: 0;
+        transition: all .5s;
+    }
+    .bgact{
+        visibility: visible;
+        opacity: 1;
+    }
+    .navbtns{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+    }
+    .Navbar{
+        padding: 20px 0;
+    }
+    .nav-logo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        transition:  all .5s .6s;
+        background-color: #ffffff10;
+        padding: 20px;
+    }
+    .navlink .navactiv .nav-logo{
+        opacity: 1;
+    }
+    .nav-logo img{
+        width: 150px;
+        margin-top: 30px;
+    }
+    .nav-logo p{
+        color: var(--color-blue-500);
+        max-width: 200px;
+        margin: 20px 0;
+        font-size: 11px;
+        line-height: 13px;
+    }
+    .nav-logo h4{
+        color: var(--color-blue-600);
+        max-width: 200px;
+        font-size: 16px;
+        margin: 0;
+    }
+    .btn-nav{
+        margin-top: 20px;
+    }
+
+}
