@@ -5,6 +5,8 @@ import Login from "./pages/LoginPage";
 import Admin from "./pages/Admin";
 // import { firebase_db } from "./firebase/firebase_init";
 import { CarDBServices } from "./firebase/database_services/car_db";
+import Dashbord from "./components/Admin/Dashbord/Dashbord";
+import Order from "./components/Admin/Orders/Order";
 import { AuthService } from "./firebase/auth_services/auth_service";
 
 function App() {
@@ -27,13 +29,17 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<Admin />} />
-        </Routes>
-      </BrowserRouter>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path='/'  element={<Home/>} />
+        <Route  path='/login'  element={<Login/>} />
+        <Route  path='/admin/'  element={<Admin />} >
+           <Route  path="dashboard"  element={<Dashbord />} />
+           <Route  path="order"  element={<Order />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+      
     </>
   );
 }
