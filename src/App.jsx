@@ -3,7 +3,9 @@ import { CarDBServices } from "./firebase/database_services/car_db";
 
 function App() {
   const carDB = new CarDBServices();
-  // carDB.addCarDoc({});
+  // carDB.addCarDoc({
+  //   lksdf:Lksjdfl
+  // });
   // carDB.updateCarDoc("9fb4ba8b-7a0b-47dd-9d9c-148321e1b9cb", {
   //   milege: "20km/L",
   // });
