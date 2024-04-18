@@ -1,14 +1,22 @@
-
-import React from "react"
-import { BrowserRouter , Routes, Route} from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Login from "./pages/LoginPage"
+import Login from "./pages/LoginPage";
 import Admin from "./pages/Admin";
-import { db } from "./firebase/firebase_init";
+// import { firebase_db } from "./firebase/firebase_init";
 import { CarDBServices } from "./firebase/database_services/car_db";
+import { AuthService } from "./firebase/auth_services/auth_service";
 
 function App() {
-  const carDB = new CarDBServices();
+  const test = async () => {
+    const authService = new AuthService();
+    // await authService.login("test@test.com", "testtest");
+    // await authService.createUser('test2@test.com','testtest');
+  };
+
+  test();
+
+  // const carDB = new CarDBServices();
   // carDB.addCarDoc({});
   // carDB.updateCarDoc("9fb4ba8b-7a0b-47dd-9d9c-148321e1b9cb", {
   //   milege: "20km/L",
@@ -17,17 +25,15 @@ function App() {
   // const foo = carDB.getCarDoc("55ef1267-1cd4-4d14-9f96-7b8090696688");
   // console.log(foo);
 
- 
-
   return (
     <>
-    <BrowserRouter>
-      <Routes>
-        <Route exact path='/'  element={<Home/>} />
-        <Route  path='/login'  element={<Login/>} />
-        <Route  path='/admin'  element={<Admin />} />
-      </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
