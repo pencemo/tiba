@@ -9,45 +9,6 @@ import { UserContext } from "../../../contexts/user_context";
 import { UserModel } from "../../../models/user_model";
 
 function Order() {
-  const authInstance = new AuthService();
-  const userDBInstance = new UserDBServices();
-
-  const navigate = useNavigate();
-  const location = useLocation();
-  const { userValue, updateUserValue } = useContext(UserContext);
-  const { isLoading, setLoading } = useLoading();
-
-
-
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      authInstance.isAuthenticated().then(async (isAuthenticated) => {
-        if (isAuthenticated) {
-          const email = authInstance.getCurrentUserEmail();
-          const userModel = await userDBInstance.getUser(email);
-
-          if (userModel != null) {
-            updateUserValue(
-              new UserModel(
-                userModel.email,
-                userModel.password,
-                userModel.name,
-                userModel.role
-              )
-            );
-          }
-
-          navigate(location.pathname);
-        } else {
-          updateUserValue(null);
-          navigate("/login");
-        }
-        setLoading(false);
-      });
-    }, 1000);
-  }, [1]);
-
   const tabel = [
     {
       name: "prodect",
@@ -121,11 +82,58 @@ function Order() {
     },
   ];
 
+  const authInstance = new AuthService();
+  const userDBInstance = new UserDBServices();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { userValue, updateUserValue } = useContext(UserContext);
+  const { isLoading, setLoading } = useLoading();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      authInstance.isAuthenticated().then(async (isAuthenticated) => {
+        if (isAuthenticated) {
+          const email = authInstance.getCurrentUserEmail();
+          const userModel = await userDBInstance.getUser(email);
+
+          if (userModel != null) {
+            updateUserValue(
+              new UserModel(
+                userModel.email,
+                userModel.password,
+                userModel.name,
+                userModel.role
+              )
+            );
+          }
+
+          navigate(location.pathname);
+        } else {
+          updateUserValue(null);
+          navigate("/login");
+        }
+        setLoading(false);
+      });
+    }, 1000);
+  }, [1]);
+
   const [open, setOpen] = useState(false);
 
   const handlClick = () => {
     console.log("clicked");
     setOpen(!open);
+  };
+
+  const handleLogout = async () => {
+    setLoading(true);
+    const authInstance = new AuthService();
+    await authInstance.logout();
+
+    updateUserValue(null);
+    navigate("/login");
+    setLoading(false);
   };
 
   return (
@@ -148,14 +156,11 @@ function Order() {
             />
           </div>
           <button
-            onClick={async () => {
-              const authInstance = new AuthService();
-              await authInstance.logout();
-            }}
+            onClick={handleLogout}
             type="button"
             className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
           >
-            Purple
+            Logout
           </button>
         </div>
         <table className="w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
