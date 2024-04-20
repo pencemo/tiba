@@ -21,10 +21,22 @@ class AuthService {
     await signOut(firebase_auth);
   }
 
-  async getCurrentUserEmail() {
+  getCurrentUserEmail() {
     const email = firebase_auth.currentUser.email;
     return email;
   }
+
+
+  async isAuthenticated() {
+    const user = firebase_auth.currentUser;
+    if (user) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
 }
 
 export { AuthService };
