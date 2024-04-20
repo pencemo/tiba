@@ -1,12 +1,20 @@
-import React from 'react'
-import { Search } from 'lucide-react';
+import React, {useContext} from 'react'
+import { Search, Menu } from 'lucide-react';
+import { Togglecontext } from '../../../pages/Admin';
 
 function Topbar() {
+
+    const {toggle, setToggle} =useContext(Togglecontext)
+    // const [toggle, setToggle]= useState(false)
+    // console.log(toggle);
   return (
-    <div className=' w-[100%] fixed top-0 h-24 bg-white'>
-        <div className='w-[100%] h-[100%] pl-48 flex items-center  justify-between container'>
-            <h1 className='font-bold text-3xl text-blue-500'>Admin Panel</h1>
-            {/* <h1>Admin Panel</h1> */}
+    <div className=' w-full absolute top-0 right-0 h-24 bg-white'>
+        <div className='w-[100%] h-[100%]  flex items-center px-10 justify-between container'>
+            <div className='flex items-center gap-3'>
+                <Menu onClick={()=>setToggle(!toggle)} className='hidden max-lg:flex cursor-pointer hover:bg-gray-300 rounded-full w-9 h-9 p-1' strokeWidth={1.25} />
+                <h1 className='font-bold text-3xl text-blue-500'>Admin Panel</h1>
+            </div>
+            
 
             <div className='flex items-center gap-5'>
                 <div className='flex items-center '>
