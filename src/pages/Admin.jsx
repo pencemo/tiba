@@ -39,8 +39,8 @@ function Admin() {
   return (
     <div className='flex '>
       <Context>
-      <Slidebar isAdmin={isAdmin} />
       <Outlet />
+      <Slidebar isAdmin={isAdmin} />
       </Context>
       <LoadingOverlay />
       {/* <Topbar /> */}

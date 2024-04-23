@@ -11,6 +11,7 @@ import { AuthService } from "./firebase/auth_services/auth_service";
 import ManageCars from "./components/Admin/ManageCars/ManageCars";
 import Manageadmin from "./components/Admin/ManageAdmin/Manageadmin";
 import Settings from "./components/Admin/Settings/Settings";
+import Enquiries from "./components/Admin/Enquirie/Enquiries";
 
 
 function App() {
@@ -37,12 +38,13 @@ function App() {
       <Routes>
         <Route exact path='/'  element={<Home/>} />
         <Route  path='/login'  element={<Login/>} />
-        <Route  path='/admin/'  element={<Admin />} >
+        <Route  path='/admin/'  element={<Admin /> } >
            <Route  path="dashboard"  element={<Dashbord />} />
            <Route  path="order"  element={<Order />} />
            <Route  path="manage-car"  element={<ManageCars />} />
            <Route  path="manage-admin"  element={<Manageadmin />} />
            <Route  path="settings"  element={<Settings />} />
+           <Route  path="enquiries"  element={<Enquiries />} />
         </Route>
       </Routes>
     </BrowserRouter>

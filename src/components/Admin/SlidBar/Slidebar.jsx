@@ -33,7 +33,7 @@ function Slidebar({ isAdmin }) {
         <CarFront size={26} strokeWidth={1.5} />{" "}
         <span className="text-lg font-medium">Manage Cars</span>
       </NavLink>
-      {isAdmin && (
+      {(
         <NavLink
           to="manage-admin"
           className="hover:bg-indigo-700 w-[90%] rounded-md p-2 flex gap-4 align-middle pl-6"
@@ -57,7 +57,7 @@ function Slidebar({ isAdmin }) {
         <span className="text-lg font-medium">Enquiries</span>
       </NavLink>
       <div className="line w-[90%] h-[1px] bg-indigo-300 mt-36"></div>
-      <div className="hover:bg-indigo-700 w-[90%] mt-10 rounded-md p-2 flex gap-4 align-middle pl-6">
+      <div className="cursor-pointer hover:bg-indigo-700 w-[90%] mt-10 rounded-md p-2 flex gap-4 align-middle pl-6">
         <LogOut size={26} strokeWidth={1.5} />{" "}
         <span className="text-lg font-medium">LogOut</span>
       </div>
