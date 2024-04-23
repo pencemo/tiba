@@ -1,8 +1,20 @@
-import React, {useState} from 'react'
+
+import React, {useContext, useEffect, useState} from 'react'
 import PopUp from './PopUp';
 import Topbar from '../SlidBar/Topbar';
 import { Trash2, SquareArrowOutUpRight, Info, Check, Search } from 'lucide-react';
 import  { tabel } from '../../../data'
+
+
+
+import { AuthService } from "../../../firebase/auth_services/auth_service";
+import { useLoading } from "../../../contexts/loading_state_context";
+import { UserDBServices } from "../../../firebase/database_services/user_db";
+import { useLocation, useNavigate } from "react-router-dom";
+import { UserContext } from "../../../contexts/user_context";
+import { UserModel } from "../../../models/user_model";
+
+
 
 function Order() {
 
@@ -11,6 +23,44 @@ function Order() {
   const [search, setSearch] =useState('')
   const [select, setSelect] =useState('')
   console.log(select);
+
+
+  const authInstance = new AuthService();
+  const userDBInstance = new UserDBServices();
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { userValue, updateUserValue } = useContext(UserContext);
+  const { isLoading, setLoading } = useLoading();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      authInstance.isAuthenticated().then(async (isAuthenticated) => {
+        if (isAuthenticated) {
+          const email = authInstance.getCurrentUserEmail();
+          const userModel = await userDBInstance.getUser(email);
+
+          if (userModel != null) {
+            updateUserValue(
+              new UserModel(
+                userModel.email,
+                userModel.password,
+                userModel.name,
+                userModel.role
+              )
+            );
+          }
+
+          navigate(location.pathname);
+        } else {
+          updateUserValue(null);
+          navigate("/login");
+        }
+        setLoading(false);
+      });
+    }, 1000);
+  }, [1]);
 
   const handlClick = (id)=>{
       const filtert= tabel.filter(items => items.id === id)
@@ -121,7 +171,7 @@ function Order() {
 
 
     </div>
-  )
+  );
 }
 
-export default Order
+export default Order;

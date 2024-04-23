@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Login.css";
 import Logo from "../../assets/Logo.png";
 import { AuthService } from "../../firebase/auth_services/auth_service";
@@ -6,10 +6,16 @@ import { UserDBServices } from "../../firebase/database_services/user_db";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/user_context";
 import { UserModel } from "../../models/user_model";
-// import { Toast } from "flowbite-react";
-// import { HiCheck, HiExclamation, HiX } from "react-icons/hi";
+
+import { User } from "lucide-react";
+import { useLoading } from "../../contexts/loading_state_context";
+import LoadingOverlay from "../Loading Overlay/loading_overlay";
+
 
 function Login() {
+  const authInstance = new AuthService();
+  const userDBInstance = new UserDBServices();
+
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -18,13 +24,40 @@ function Login() {
   const [loginerr, setloginerr] = useState('');
   const { userValue, updateUserValue } = useContext(UserContext);
 
+  const { isLoading, setLoading } = useLoading();
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      authInstance.isAuthenticated().then(async (isAuthenticated) => {
+        if (isAuthenticated) {
+          const userModel = await userDBInstance.getUser(email);
+
+          if (userModel != null) {
+            updateUserValue(
+              new UserModel(
+                userModel.email,
+                userModel.password,
+                userModel.name,
+                userModel.role
+              )
+            );
+          }
+
+          navigate("/admin/dashboard");
+        }
+        setLoading(false);
+      });
+    }, 1000);
+  }, [1]);
+
   const handleSubmitButton = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
       if (email.length != 0 && password.length != 0) {
-        const userDbService = new UserDBServices();
-        const userModel = await userDbService.getUser(email);
+        const userModel = await userDBInstance.getUser(email);
 
         if (userModel == null) {
           console.log("No user found");
@@ -44,13 +77,11 @@ function Login() {
         );
         updateUserValue(finalUser);
 
-        const authService = new AuthService();
-        await authService.login(email, password);
+        await authInstance.login(email, password);
 
         navigate("/admin/dashboard");
-        
 
-        // const currentEmail = await authService.getCurrentUserEmail();
+        // const currentEmail = await authInstance.getCurrentUserEmail();
 
         console.log("logged in successfully as " + currentEmail);
       } else {
@@ -71,6 +102,8 @@ function Login() {
         "error in Login Page -> handleSubmitButton() _> " + e.message
         
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -185,7 +218,8 @@ function Login() {
       // </Toast>
       }
 
-      
+
+      <LoadingOverlay />
     </div>
   );
 }
