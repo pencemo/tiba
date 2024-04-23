@@ -17,7 +17,7 @@ function PopUp(props) {
     <div  className='fixed flex justify-center  z-30 w-[100vw] inset-0 min-h-[100vh] '>
       <div onClick={open} className="fixed w-full h-full inset-0  bg-black bg-opacity-80"></div>
 
-      <div className='max-w-[60rem] max-h-[700px] my-10 overflow-y-auto scrollbar-none relative p-12 rounded-3xl bg-white '>
+      <div className='max-w-[60rem] max-h-[700px] my-auto overflow-y-auto scrollbar-none relative p-12 rounded-3xl bg-white '>
         <X onClick={open} className='absolute right-10 cursor-pointer bg-gray-200 p-1 w-9 h-9 rounded-full text-gray-600' strokeWidth={1.5}/>
         <h1 className='font-semibold text-indigo-600 border-b border-gray-300 text-lg pb-5'>Product Delalis</h1>
 

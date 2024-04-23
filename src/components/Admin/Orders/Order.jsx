@@ -69,6 +69,17 @@ function Order() {
     setOpen(!open)
   }
 
+  const searchFilter=(data)=>{
+     return data.filter(
+        (item)=>
+            // item.brand === select 
+            item.brand.toLowerCase().includes(search) ||
+            item.name.toLowerCase().includes(search)
+    )
+  }
+  
+  const data=searchFilter(tabel)
+
   return (
     <div className='min-width min-h-full flex absolute right-0 justify-center px-5 max-lg:px-2  bg-slate-200'>
       <Topbar title={"Order Manage"}/>
@@ -84,12 +95,12 @@ function Order() {
                   <input onChange={(e)=>setSearch(e.target.value)} type="text" id="table-search" className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items" />
               </div>
                <div className='flex items-center justify-center'>
-               <select onChange={(e)=>setSelect(e.target.value)} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option  value="">Choose a country</option>
+               <select onChange={(e)=>setSelect(e.target.value.toLowerCase())} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value='' >Select a Category</option>
                     {/* <option value="US">United States</option> */}
-                    <option value="Laptop">Laptop</option>
-                    <option value="Tablet">Tablet</option>
-                    <option value="Smartphone">Smartphone</option>
+                    <option value="Apple">Apple</option>
+                    <option value="Samsung">Samsung</option>
+                    <option value="Lenovo">Lenovo</option>
                 </select>
 
               {/* <button type="button" className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
@@ -128,7 +139,7 @@ function Order() {
                   </tr>
               </thead>
               <tbody>
-                  {tabel.filter((item)=>item.productCategory.toLowerCase().includes(select)).map(items=>{
+                  {data.map(items=>{
                     return<tr key={items.id}  className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td className="w-4 p-4">
                         <div className="flex items-center">
@@ -143,7 +154,7 @@ function Order() {
                       {items.color}
                     </td>
                     <td className="px-12 py-4">
-                    {items.productCategory}
+                    {items.brand}
                     </td>
                     <td className="px-12 py-4">
                       {items.status ? <span className="flex items-center gap-1 bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">

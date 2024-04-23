@@ -11,10 +11,10 @@ const LoadingOverlay = () => {
   else if (isLoading || isLoading == null)
     return (
       <div className="loading-overlay-screen">
-        <div class="loader">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+        <div className="loader">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
         </div>
       </div>
     );
