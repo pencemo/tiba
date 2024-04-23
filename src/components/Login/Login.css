@@ -1,4 +1,15 @@
 .Login{
     width: 100%;
     height: 100vh;
+    position: relative;
+}
+.toast{
+    animation: inanimation 1s ease backwards;
+}
+
+@keyframes inanimation{
+    from{
+        opacity: 0;
+        bottom: 50px;
+    }
 }

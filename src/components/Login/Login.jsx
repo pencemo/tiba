@@ -6,9 +6,11 @@ import { UserDBServices } from "../../firebase/database_services/user_db";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/user_context";
 import { UserModel } from "../../models/user_model";
+
 import { User } from "lucide-react";
 import { useLoading } from "../../contexts/loading_state_context";
 import LoadingOverlay from "../Loading Overlay/loading_overlay";
+
 
 function Login() {
   const authInstance = new AuthService();
@@ -17,6 +19,9 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [toast, setToast] = useState(false);
+  const [loginerr, setloginerr] = useState('');
   const { userValue, updateUserValue } = useContext(UserContext);
 
   const { isLoading, setLoading } = useLoading();
@@ -56,6 +61,11 @@ function Login() {
 
         if (userModel == null) {
           console.log("No user found");
+          setToast(true)
+          setloginerr('No user found')
+          setTimeout(()=>{
+            setToast(false)
+          }, 4000)
           return;
         }
 
@@ -76,10 +86,21 @@ function Login() {
         console.log("logged in successfully as " + currentEmail);
       } else {
         console.log("fill all fields");
+        setToast(true)
+        setloginerr('fill all fields')
+        setTimeout(()=>{
+          setToast(false)
+        }, 4000)
       }
     } catch (e) {
+      setToast(true)
+      setloginerr(e.message)
+      setTimeout(()=>{
+        setToast(false)
+      }, 4000)
       console.log(
         "error in Login Page -> handleSubmitButton() _> " + e.message
+        
       );
     } finally {
       setLoading(false);
@@ -174,6 +195,30 @@ function Login() {
           </p>
         </div>
       </div>
+      {toast && <div className="toast opacity-100  absolute bottom-20 right-20 max-w-xs bg-white border border-gray-200 rounded-xl shadow-lg dark:bg-neutral-800 dark:border-neutral-700" role="alert">
+        <div className="flex p-4">
+          <div className="flex-shrink-0">
+            <svg className="flex-shrink-0 size-4 text-red-500 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"></path>
+            </svg>
+          </div>
+          <div className="ms-3">
+            <p className="text-sm text-gray-700 dark:text-neutral-400">
+            {loginerr}
+            </p>
+          </div>
+        </div>
+      </div>
+      // <Toast className="absolute bottom-20 right-20 bg-gray-100">
+      //   <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-red-100 text-red-500 dark:bg-red-800 dark:text-red-200">
+      //     <HiExclamation className="h-5 w-5" />
+      //   </div>
+      //   <div className="ml-3 text-sm font-normal">{loginerr}</div>
+      //   <Toast.Toggle />
+      // </Toast>
+      }
+
+
       <LoadingOverlay />
     </div>
   );
