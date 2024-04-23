@@ -1,103 +1,27 @@
 import React, {useState} from 'react'
-import { Search } from 'lucide-react';
 import PopUp from './PopUp';
 import Topbar from '../SlidBar/Topbar';
-import { Trash2, SquareArrowOutUpRight, Info, Check } from 'lucide-react';
+import { Trash2, SquareArrowOutUpRight, Info, Check, Search } from 'lucide-react';
+import  { tabel } from '../../../data'
 
 function Order() {
-  const tabel = [
-    {
-      name: 'prodect',
-      status: true,
-      color: 'bleck',
-      category: 'lap',
-      price: '$1999',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect2',
-      status: false,
-      color: 'bleck',
-      category: 'lap',
-      price: '$1956',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3',
-      status: false,
-      color: 'red',
-      category: 'mob',
-      price: '$10232',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3',
-      status: false,
-      color: 'red',
-      category: 'mob',
-      price: '$8699',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3',
-      status: true,
-      color: 'red',
-      category: 'mob',
-      price: '$45639',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3',
-      status: true,
-      color: 'red',
-      category: 'mob',
-      price: '$56321',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3 name one',
-      status: false,
-      color: 'red',
-      category: 'mob',
-      price: '$6999',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3 name tow',
-      status: true,
-      color: 'red',
-      category: 'mob',
-      price: '$57699',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3',
-      status: true,
-      color: 'red',
-      category: 'mob',
-      price: '$56699',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-    {
-      name: 'prodect3',
-      status: false,
-      color: 'red',
-      category: 'mob',
-      price: '$5699',
-      disc: 'lo@Meglio In HTML you need a ID for the for attribute to work. To make your component reusable you could add a name property to your component that you set as ID and as name attribute on the actual input field.'
-    },
-  ]
 
   const [open, setOpen] =useState(false)
+  const [productId, setProductId] =useState()
+  const [search, setSearch] =useState('')
+  const [select, setSelect] =useState('')
+  console.log(select);
 
   const handlClick = (id)=>{
-    console.log(id);
+      const filtert= tabel.filter(items => items.id === id)
+    //   console.log(filtered);
+    setProductId(filtert)
     setOpen(!open)
   }
 
   return (
-    <div className='min-width flex absolute right-0 justify-center px-5 max-lg:px-2  bg-slate-200'>
-      <Topbar />
+    <div className='min-width min-h-full flex absolute right-0 justify-center px-5 max-lg:px-2  bg-slate-200'>
+      <Topbar title={"Order Manage"}/>
 
       <div className="p-8 px-16 max-lg:px-2 my-36 bg-white relative overflow-x-auto shadow-md rounded-lg ">
           <div className="flex mt-6 flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -107,9 +31,21 @@ function Order() {
                   <div className="absolute inset-y-0 left-0 rtl:inset-r-0 rtl:right-0 flex items-center ps-3 pointer-events-none">
                     <Search className="w-5 h-5 text-gray-500 dark:text-gray-400" strokeWidth={1.25} />
                   </div>
-                  <input type="text" id="table-search" className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items" />
+                  <input onChange={(e)=>setSearch(e.target.value)} type="text" id="table-search" className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items" />
               </div>
-              <button type="button" className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Purple</button>
+               <div className='flex items-center justify-center'>
+               <select onChange={(e)=>setSelect(e.target.value)} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option  value="">Choose a country</option>
+                    {/* <option value="US">United States</option> */}
+                    <option value="Laptop">Laptop</option>
+                    <option value="Tablet">Tablet</option>
+                    <option value="Smartphone">Smartphone</option>
+                </select>
+
+              {/* <button type="button" className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
+                Add to cart
+              </button> */}
+               </div>
           </div>
           <table className="w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -142,8 +78,8 @@ function Order() {
                   </tr>
               </thead>
               <tbody>
-                  {tabel.map(items=>{
-                    return<tr key={items.price}  className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                  {tabel.filter((item)=>item.productCategory.toLowerCase().includes(select)).map(items=>{
+                    return<tr key={items.id}  className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <td className="w-4 p-4">
                         <div className="flex items-center">
                             <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
@@ -157,20 +93,20 @@ function Order() {
                       {items.color}
                     </td>
                     <td className="px-12 py-4">
-                    {items.category}
+                    {items.productCategory}
                     </td>
                     <td className="px-12 py-4">
                       {items.status ? <span className="flex items-center gap-1 bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">
                       <Info size={14} strokeWidth={1.5} />
                         Pending
-                      </span> : <span class="flex items-center gap-1 bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
+                      </span> : <span className="flex items-center gap-1 bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">
                       <Check size={14} strokeWidth={1.5} />
                         Green
                         </span>}
                     </td>
                     
                     <td className="px-12 py-4">
-                        <h4 onClick={()=>handlClick(items.price)} className="cursor-pointer flex items-center gap-2 p-1 px-2 rounded-md font-semibold text-blue-600 dark:text-blue-500 hover:underline hover:bg-slate-200">View <SquareArrowOutUpRight size={22} strokeWidth={1.25} /></h4>
+                        <h4 onClick={()=>handlClick(items.id)} className="cursor-pointer flex items-center gap-2 p-1 px-2 rounded-md font-semibold text-blue-600 dark:text-blue-500 hover:underline hover:bg-slate-200">View <SquareArrowOutUpRight size={22} strokeWidth={1.25} /></h4>
                     </td>
                     <td className="px-12 py-4">
                         <h4 className="cursor-pointer flex items-center gap-2 p-1 px-2 rounded-md font-semibold text-blue-600 dark:text-blue-500 hover:underline hover:bg-slate-200">Delete <Trash2 strokeWidth={1.25} /></h4>
@@ -181,7 +117,7 @@ function Order() {
               </tbody>
           </table>
       </div>
-      {open && <PopUp data={open} data2={setOpen} />}
+      {open && <PopUp data={open} data2={setOpen} product={productId} />}
 
 
     </div>

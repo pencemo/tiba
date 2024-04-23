@@ -6,10 +6,11 @@ function Form(props) {
 
 
   return (
-    <div  className='fixed flex  justify-center inset-0 bg-opacity-90 bg-black z-50 '>
+    <div  className='fixed flex  justify-center inset-0  z-50 '>
+      <div  onClick={()=>props.data2(!props.data)} className="fixed w-full h-full inset-0  bg-black bg-opacity-80"></div>
       <form className='max-w-2xl min-h-auto overflow-x-auto scrollbar-none rounded-2xl bg-gray-50 my-10 relative p-20 max-lg:px-2'>
       <div className=" ">
-       <X onClick={()=>props.data2(!props.data)} className='fixed right-10 top-10 text-white cursor-pointer hover:bg-gray-500 rounded-full w-10 h-10 p-2' />
+       <X onClick={()=>props.data2(!props.data)} className='absolute right-10 top-10 text-gray-600 cursor-pointer hover:bg-gray-500 rounded-full w-10 h-10 p-2' />
         <div className="">
           <h2 className="text-2xl font-bold leading-7 text-indigo-600">Add New Car Details</h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
