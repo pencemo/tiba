@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   LayoutGrid,
   CarFront,
@@ -11,8 +11,25 @@ import {
 } from "lucide-react";
 import logo2 from "../../../assets/Logo2.png";
 import "./Slidbar.css";
+import { useLoading } from "../../../contexts/loading_state_context";
+import { AuthService } from "../../../firebase/auth_services/auth_service";
+import { UserContext } from "../../../contexts/user_context";
 
 function Slidebar({ isAdmin }) {
+  const { isLoading, setLoading } = useLoading();
+  const navigate = useNavigate();
+  const { userValue, updateUserValue } = useContext(UserContext);
+
+  const handleLogout = async () => {
+    setLoading(true);
+    const authInstance = new AuthService();
+    await authInstance.logout();
+
+    updateUserValue(null);
+    navigate("/login");
+    setLoading(false);
+  };
+
   return (
     <div className=" z-10 bg-indigo-600 w-72 h-screen pl-6 flex gap-2 flex-col  text-white">
       <img src={logo2} alt="" className="w-32 mt-8" />
@@ -61,7 +78,10 @@ function Slidebar({ isAdmin }) {
         <span className="text-lg font-medium">Enquiries</span>
       </NavLink>
       <div className="line w-[90%] h-[1px] bg-indigo-300 mt-36"></div>
-      <div className="hover:bg-indigo-700 w-[90%] mt-10 rounded-md p-2 flex gap-4 align-middle pl-6">
+      <div
+        className="hover:bg-indigo-700 w-[90%] mt-10 rounded-md p-2 flex gap-4 align-middle pl-6"
+        onClick={handleLogout}
+      >
         <LogOut size={26} strokeWidth={1.5} />{" "}
         <span className="text-lg font-medium">LogOut</span>
       </div>

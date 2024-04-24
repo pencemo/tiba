@@ -126,15 +126,15 @@ function Order() {
     setOpen(!open);
   };
 
-  const handleLogout = async () => {
-    setLoading(true);
-    const authInstance = new AuthService();
-    await authInstance.logout();
+  // const handleLogout = async () => {
+  //   setLoading(true);
+  //   const authInstance = new AuthService();
+  //   await authInstance.logout();
 
-    updateUserValue(null);
-    navigate("/login");
-    setLoading(false);
-  };
+  //   updateUserValue(null);
+  //   navigate("/login");
+  //   setLoading(false);
+  // };
 
   return (
     <div className="min-width flex  justify-center px-24 bg-slate-200">
@@ -156,11 +156,10 @@ function Order() {
             />
           </div>
           <button
-            onClick={handleLogout}
             type="button"
             className="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
           >
-            Logout
+            Purple
           </button>
         </div>
         <table className="w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
