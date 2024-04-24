@@ -2,7 +2,6 @@
 import React, {createContext, useState, useContext, useEffect} from 'react'
 import Slidebar from '../components/Admin/SlidBar/Slidebar'
 import { Outlet, useNavigate, useLocation } from 'react-router-dom'
-import './Admin.css'
 import Topbar from "../components/Admin/SlidBar/Topbar";
 import LoadingOverlay from "../components/Loading Overlay/loading_overlay";
 import { UserContext } from "../contexts/user_context";

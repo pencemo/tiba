@@ -72,8 +72,8 @@ function Order() {
   const searchFilter=(data)=>{
      return data.filter(
         (item)=>
-            // item.brand === select 
-            item.brand.toLowerCase().includes(search) ||
+            item.brand.toLowerCase() === select.toLowerCase() ||
+            // item.brand.toLowerCase().includes(search) ||
             item.name.toLowerCase().includes(search)
     )
   }
@@ -81,10 +81,10 @@ function Order() {
   const data=searchFilter(tabel)
 
   return (
-    <div className='min-width min-h-full flex absolute right-0 justify-center px-5 max-lg:px-2  bg-slate-200'>
+    <div className='min-width flex flex-col min-h-full absolute right-0  max-lg:px-2 px-10 bg-slate-200'>
       <Topbar title={"Order Manage"}/>
 
-      <div className="p-8 px-16 max-lg:px-2 my-36 bg-white relative overflow-x-auto shadow-md rounded-lg ">
+      <div className="p-8 px-16 max-lg:px-2 my-36 mx-auto bg-white relative overflow-x-auto shadow-md rounded-lg ">
           <div className="flex mt-6 flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
               
               <label  className="sr-only">Search</label>
@@ -95,7 +95,7 @@ function Order() {
                   <input onChange={(e)=>setSearch(e.target.value)} type="text" id="table-search" className="block p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search for items" />
               </div>
                <div className='flex items-center justify-center'>
-               <select onChange={(e)=>setSelect(e.target.value.toLowerCase())} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+               <select onChange={(e)=>setSelect(e.target.value)} id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                     <option value='' >Select a Category</option>
                     {/* <option value="US">United States</option> */}
                     <option value="Apple">Apple</option>

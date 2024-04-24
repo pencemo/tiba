@@ -12,7 +12,7 @@ function Slidebar({ isAdmin }) {
       // const [toggle, setToggle]= useState(false)
       console.log(toggle);
   return (
-    <div className={toggle ? "transition-all duration-300 z-10 fixed bg-indigo-600 w-72 left-0 top-0 max-lg:left-[-300px] h-screen pl-6 flex gap-2 flex-col  text-white" : "transition-all duration-300 z-10 fixed bg-indigo-600 w-72 left-0 top-0 max-lg:left-0 h-screen pl-6 flex gap-2 flex-col  text-white"}>
+    <div className={toggle ? "sidebar transition-all duration-300 z-10 fixed bg-indigo-600 w-72 left-0 top-0 max-lg:left-[-300px] h-screen pl-6 flex gap-2 flex-col  text-white" : "transition-all duration-300 z-10 fixed bg-indigo-600 w-72 left-0 top-0 max-lg:left-0 h-screen pl-6 flex gap-2 flex-col  text-white"}>
       <img src={logo2} alt="" className='w-32 mt-8' />
       <X onClick={()=>setToggle(!toggle)} strokeWidth={1.25} size={30} className='hidden max-lg:flex absolute right-12 top-14 cursor-pointer hover:bg-white hover:text-indigo-600 rounded-full p-1' />
       <NavLink to="dashboard" className='hover:bg-indigo-700 mt-24 w-[90%] rounded-md p-2 flex gap-4 align-middle pl-6'>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Topbar from '../SlidBar/Topbar';
-import { Trash2, SquareArrowOutUpRight, Edit, Plus, Search  } from 'lucide-react';
+import { Plus, Search, MessageSquareText  } from 'lucide-react';
 import  { user } from '../../../data'
 
 
@@ -27,18 +27,10 @@ function Enquiries() {
           <table className=" w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                      {/* <th scope="col" className="p-4">
-                          <div className="flex items-center">
-                              <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                              <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
-                          </div>
-                      </th> */}
+                      
                       <th scope="col" className="px-6 py-3">
-                         Name of 
+                         Name
                       </th>
-                      {/* <th scope="col" className="px-6 py-3">
-                          Product name
-                      </th> */}
                       <th scope="col" className="px-12 py-3">
                           Contact No
                       </th>
@@ -55,27 +47,16 @@ function Enquiries() {
                       <th scope="col" className="px-14 py-3">
                           Action
                       </th>
-                      <th scope="col" className="px-14 py-3">
-                          Action
-                      </th>
                   </tr>
               </thead>
               <tbody>
                   {user.map(items=>{
                     return<tr key={items.id}  className="cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    {/* <td className="w-4 p-4">
-                        <div className="flex items-center">
-                            <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                            <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                        </div>
-                    </td> */}
+                    
                     <th scope="row" className="capitalize flex gap-3 items-center px-6 py-4 text-base font-semibold text-gray-900 whitespace-nowrap dark:text-white">
                       {items.name}
                     </th>
-                    {/* <th scope="row" className="px-6 py-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {items.name}
-                    </th> */}
-                    <td className="px-12 py-4">
+                    <td className="px-12 py-4 numberFont">
                       {items.phone}
                     </td>
                     <td className="px-12 py-4">
@@ -84,16 +65,15 @@ function Enquiries() {
                     <td className="px-12 py-4">
                       {items.company.name}
                     </td>
+                    <td className="px-12 py-4">
+                      {`${items.company.name} ${items.company.catchPhrase}`}
+                    </td>
                     
                     <td className="px-12 py-4">
-                        <h4  className="cursor-pointer flex items-center gap-2 p-1 px-2 rounded-md font-semibold text-blue-600 dark:text-blue-500 hover:underline hover:bg-slate-200">View <SquareArrowOutUpRight size={22} strokeWidth={1.25} /></h4>
+                        <h4  className="cursor-pointer flex items-center gap-2 p-1 px-2 rounded-md font-semibold text-blue-600 hover:bg-slate-200">
+                           Replay <MessageSquareText size={22} strokeWidth={1.25} /></h4>
                     </td>
-                    <td className="px-12 py-4">
-                        <h4 className="cursor-pointer flex items-center gap-2 p-1 px-2 rounded-md font-semibold text-blue-600 dark:text-blue-500 hover:underline hover:bg-slate-200">Edit <Edit strokeWidth={1.25} /></h4>
-                    </td>
-                    <td className="px-12 py-4">
-                        <h4 className="cursor-pointer flex items-center gap-2 p-1 px-2 rounded-md font-semibold text-blue-600 dark:text-blue-500 hover:underline hover:bg-slate-200">Delete <Trash2 strokeWidth={1.25} /></h4>
-                    </td>
+                    
                 </tr>}
 
                   )}
