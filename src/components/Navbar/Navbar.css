@@ -49,8 +49,9 @@ a{
     font-weight: 400;
     /* padding: 3px 8px; */
     border-radius: 5px;
+    padding: 5px 8px;
 }
-.navlink ul li a::before{
+/* .navlink ul li a::before{
     position: absolute;
     content: "";
     width: 0;
@@ -61,20 +62,20 @@ a{
 }
 .navlink ul li a:hover::before{
     width: 100%;
+} */
+
+.navlink ul li a:hover{
+    background-color: #fff;
+    color: #1b1b1b;
 }
 
-.navlink ul li .active::before{
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 1px;
+.navlink ul li .active{
     background-color: #fff;
-    bottom: -5px;
-    transition: all .2s;
+    color: #1b1b1b;
 }
 
 .navscroll{
-    background-color: var(--color-blue-300);
+    background-color: black;
     padding: 10px 0;
     box-shadow: 0 0 10px #00000056;
 }
@@ -123,7 +124,7 @@ a{
         /* justify-content: center; */
         padding-top: 80px;
         gap: 20px;
-        background-color: var(--color-blue-200);
+        background-color: black;
         top: 0;
         right: 0;
         width: 250px;
@@ -191,36 +192,8 @@ a{
     .Navbar{
         padding: 20px 0;
     }
-    .nav-logo{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        opacity: 0;
-        transition:  all .5s .6s;
-        background-color: #ffffff10;
-        padding: 20px;
-    }
-    .navlink .navactiv .nav-logo{
-        opacity: 1;
-    }
-    .nav-logo img{
-        width: 150px;
-        margin-top: 30px;
-    }
-    .nav-logo p{
-        color: var(--color-blue-500);
-        max-width: 200px;
-        margin: 20px 0;
-        font-size: 11px;
-        line-height: 13px;
-    }
-    .nav-logo h4{
-        color: var(--color-blue-600);
-        max-width: 200px;
-        font-size: 16px;
-        margin: 0;
-    }
+    
+    
     .btn-nav{
         margin-top: 20px;
     }

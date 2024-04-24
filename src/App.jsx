@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/LoginPage";
 import Admin from "./pages/Admin";
+import AboutPage from "./pages/AboutPage";
 // import { firebase_db } from "./firebase/firebase_init";
 import { CarDBServices } from "./firebase/database_services/car_db";
 import Dashbord from "./components/Admin/Dashbord/Dashbord";
@@ -37,6 +38,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route exact path='/'  element={<Home/>} />
+        <Route  path='/about'  element={<AboutPage />} />
         <Route  path='/login'  element={<Login/>} />
         <Route  path='/admin/'  element={<Admin /> } >
            <Route  path="dashboard"  element={<Dashbord />} />

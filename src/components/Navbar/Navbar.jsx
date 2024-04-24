@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import { NavLink, Link} from 'react-router-dom';
+import {ShoppingCart} from 'lucide-react'
 import './Navbar.css'
 import { Spin as Hamburger } from 'hamburger-react'
-import logo from '../../assets/Logo.png'
+import logo from '../../assets/Logo2.png'
 
 
 const Navbar = () => {
@@ -33,19 +34,13 @@ const Navbar = () => {
         <ul  className={toggle && 'navactiv' }>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/about'>About</NavLink></li>
-            <li><NavLink to='/menu'>Menu</NavLink></li>
+            <li><NavLink to='/menu'>Cars</NavLink></li>
             <li><NavLink to='/gallery'>Gallery</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
-            <div className="nav-logo">
-              <img src="./assets/logo.png" alt="" />
-              <p>NeptuneMark Near Markaz Knowledge City, Calcut, Kerala - 673586</p>
-              <h4 className='fonts'>+91 8590 30 50 60</h4>
-              <h4>neptunemarkindia@gmail</h4>
-              <Link className='btns btn-nav' to='/menu'>Order Now</Link>
-            </div>
+            
         </ul>
         <div className='navbtns'>
-            {/* <ShoppingCart color={'#fff'} size={28} strokeWidth={1} /> */}
+            <ShoppingCart color={'#fff'} size={28} strokeWidth={1} />
             {/* <NavLink className='sign' to='/contact'>Sign In</NavLink> */}
             <Link className='btns' to='/menu'>Order Now</Link>
           <div className="navbtn" >
