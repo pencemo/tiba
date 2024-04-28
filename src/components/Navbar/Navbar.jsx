@@ -3,7 +3,7 @@ import { NavLink, Link} from 'react-router-dom';
 import {ShoppingCart} from 'lucide-react'
 import './Navbar.css'
 import { Spin as Hamburger } from 'hamburger-react'
-import logo from '../../assets/Logo2.png'
+import logo from '../../assets/Logo3.png'
 
 
 const Navbar = () => {
@@ -27,20 +27,20 @@ const Navbar = () => {
   }
 
   return (
-    <div className={scroll ? 'Navbar navscroll ' : 'Navbar '}>
-      <div className='navlink container'>
+    <div className={`Navbar  ${scroll && 'navscroll bg-zinc-900'}`}>
+      <div className='container navlink'>
         <div className="logo"><img src={logo} alt="" /></div>
         <div onClick={navtoggle} className={toggle ? 'bg bgact' : 'bg' }></div>
-        <ul  className={toggle && 'navactiv' }>
+        <ul  className={toggle ? 'navactiv' : '' }>
             <li><NavLink to='/'>Home</NavLink></li>
             <li><NavLink to='/about'>About</NavLink></li>
-            <li><NavLink to='/menu'>Cars</NavLink></li>
+            <li><NavLink to='/cars'>Cars</NavLink></li>
             <li><NavLink to='/gallery'>Gallery</NavLink></li>
             <li><NavLink to='/contact'>Contact</NavLink></li>
             
         </ul>
         <div className='navbtns'>
-            <ShoppingCart color={'#fff'} size={28} strokeWidth={1} />
+            {/* <ShoppingCart color={'#fff'} size={28} strokeWidth={1} /> */}
             {/* <NavLink className='sign' to='/contact'>Sign In</NavLink> */}
             <Link className='btns' to='/menu'>Order Now</Link>
           <div className="navbtn" >
@@ -55,6 +55,9 @@ const Navbar = () => {
 
         </div>
         </div>
+      </div>
+      <div className="container">
+        <div className={`w-full h-[1px] mt-8 bg-white bg-opacity-30 ${scroll && 'hidden'}`}></div>
       </div>
     </div>
   )

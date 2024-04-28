@@ -13,6 +13,7 @@ import ManageCars from "./components/Admin/ManageCars/ManageCars";
 import Manageadmin from "./components/Admin/ManageAdmin/Manageadmin";
 import Settings from "./components/Admin/Settings/Settings";
 import Enquiries from "./components/Admin/Enquirie/Enquiries";
+import Contactpage from "./pages/Contactpage";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
       <Routes>
         <Route exact path='/'  element={<Home/>} />
         <Route  path='/about'  element={<AboutPage />} />
+        <Route  path='/contact'  element={<Contactpage />} />
         <Route  path='/login'  element={<Login/>} />
         <Route  path='/admin/'  element={<Admin /> } >
            <Route  path="dashboard"  element={<Dashbord />} />
