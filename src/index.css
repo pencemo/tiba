@@ -26,11 +26,25 @@ body{
 
 .numberFont{
     font-family: "Montserrat", sans-serif;
-    font-weight: 600;
+    /* font-weight: 600; */
 }
 
 .btns{
-    background-color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: #fde68a;
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 500;
+}
+.btns:hover{
+    background-color: #e6ca5d;
+}
+
+.container{
+    padding: 0 50px;
+}
+@media (max-width: 1024px){
+    .container{
+        padding: 0 10px;
+    }
 }

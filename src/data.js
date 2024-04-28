@@ -869,3 +869,127 @@ export const user= [
       }
     }
   ]
+
+  export const cars=[
+    {
+        "car_name": "Toyota Camry",
+        'id' : '1',
+        "car_category": "sedans",
+        "mileage": "28 mpg",
+        "type": "petrol",
+        "seating_capacity": 5,
+        "year": 2023,
+        "brand": "Toyota",
+        "rent_rate": 50,
+        'url' : 'https://imgd.aeplcdn.com/664x374/cw/ec/21613/Honda-Accord-Right-Rear-Three-Quarter-64769.jpg?v=201711021421&q=80'
+        
+    },
+    {
+        "car_name": "Honda CR-V",
+        'id' : '2',
+        "car_category": "SUV",
+        "mileage": "30 mpg",
+        "type": "hybrid",
+        "seating_capacity": 5,
+        "year": 2022,
+        "brand": "Honda",
+        "rent_rate": 60,
+        'url' : 'https://cdni.autocarindia.com/Utils/ImageResizer.ashx?n=https://cdni.autocarindia.com/ExtraImages/20220714101224_Honda_CR_V_front.jpeg&w=700&c=1',
+    },
+    {
+        "car_name": "Volkswagen Golf",
+        'id' : '3',
+        'url' : 'https://cdn.motor1.com/images/mgl/Kb1e0M/s3/2024-volkswagen-golf-gte.jpg',
+        "car_category": "Hatchbacks",
+        "mileage": "32 mpg",
+        "type": "diesel",
+        "seating_capacity": 4,
+        "year": 2024,
+        "brand": "Volkswagen",
+        "rent_rate": 45
+    },
+    {
+        "car_name": "Toyota Sienna",
+        'id' : '4',
+        "car_category": "Van",
+        'url' : 'https://imgd.aeplcdn.com/1200x900/n/cw/ec/47584/toyota-innova-crysta-exterior2.jpeg?wm=0',
+        "mileage": "25 mpg",
+        "type": "hybrid",
+        "seating_capacity": 7,
+        "year": 2023,
+        "brand": "Toyota",
+        "rent_rate": 70
+    },
+    {
+        "car_name": "BMW 4 Series",
+        'id' : '5',
+        'url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAX4wefjCiudmUaZCfKtGFYyl7A9-LHvq6ajETAE8H8w&s',
+        "car_category": "Coupes",
+        "mileage": "26 mpg",
+        "type": "petrol",
+        "seating_capacity": 4,
+        "year": 2024,
+        "brand": "BMW",
+        "rent_rate": 80
+    },
+    {
+        "car_name": "Honda Accord",
+        'id' : '6',
+        'url' : 'https://www.cnet.com/a/img/resize/844e9f7579225fc1e113b2537bcec271e59bb608/hub/2019/09/18/f75fa0a5-6708-4264-b19d-3219b26a42b1/promo.jpg?auto=webp&fit=crop&height=675&width=1200',
+        "car_category": "sedans",
+        "mileage": "30 mpg",
+        "type": "diesel",
+        "seating_capacity": 5,
+        "year": 2023,
+        "brand": "Honda",
+        "rent_rate": 55
+    },
+    {
+        "car_name": "Ford Explorer",
+        'id' : '7',
+        'url' : 'https://www.ford.com/is/image/content/dam/vdm_ford/live/en_us/ford/nameplate/explorer/2025/collections/dm/FRDNSUVX0761_Ford_Explorer_25MY_0748_03RGB.tif?croppathe=1_16x9&wid=1440',
+        "car_category": "SUV",
+        "mileage": "26 mpg",
+        "type": "petrol",
+        "seating_capacity": 7,
+        "year": 2022,
+        "brand": "Ford",
+        "rent_rate": 65
+    },
+    {
+        "car_name": "Mazda3",
+        'id' : '8',
+        'url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2UE0z6fg9mHdkcqq2UgTZvQ_ERgNd9nAHigWbGwBbzQ&s',
+        "car_category": "Hatchbacks",
+        "mileage": "35 mpg",
+        "type": "petrol",
+        "seating_capacity": 5,
+        "year": 2024,
+        "brand": "Mazda",
+        "rent_rate": 48
+    },
+    {
+        "car_name": "Chrysler Pacifica",
+        'id' : '9',
+        'url' : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCTbii25l1fPHqfJRv-tpQL4vGWytKmFlMpozUwfx-ng&s',
+        "car_category": "Van",
+        "mileage": "28 mpg",
+        "type": "hybrid",
+        "seating_capacity": 8,
+        "year": 201,
+        "brand": "Chrysler",
+        "rent_rate": 75
+    },
+    {
+        "car_name": "Chevrolet Camaro",
+        'id' : '10',
+        'url' : 'https://www.carandbike.com/_next/image?url=http%3A%2F%2Fi.ndtvimg.com%2Fi%2F2016-06%2Fbumblebee-chevy-camaro_827x510_51465184707.jpg&w=750&q=75',
+        "car_category": "Coupes",
+        "mileage": "24 mpg",
+        "type": "diesel",
+        "seating_capacity": 4,
+        "year": 2020,
+        "brand": "Chevrolet",
+        "rent_rate": 85
+      }
+  ]

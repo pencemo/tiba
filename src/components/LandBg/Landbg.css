@@ -1,3 +1,8 @@
+
+:root{
+    --manin-color: rgb(253, 230, 138);
+}
+
 .landbg{
     width: 100%;
     height: 100vh;
@@ -89,8 +94,18 @@
     z-index: 11;
     visibility: hidden;
 }
-.act .gride{
+.act .gride,
+.act .gride2{
     visibility: visible;
+}
+.gride2{
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image:linear-gradient(0deg,rgba(0, 0, 0, 0.7), transparent, transparent);
+    z-index: 11;
+    visibility: hidden;
 }
 
 
@@ -101,7 +116,8 @@
     z-index: 2;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
+    text-align: center;
 }
 .contant h1{
     font-family: 'Abril Fatface', serif;
@@ -113,8 +129,8 @@
     transition: all 2s;
     opacity: 0;
     visibility: hidden;
-    max-width: 700px;
-    animation: land 1.5s 200ms backwards;
+    max-width: 800px;
+    animation: land 1.5s 600ms backwards;
 }
 .act .contant h1{
     opacity: 1;
@@ -126,14 +142,14 @@
     color: #fff;
     font-size: 15px;
     font-weight: 300;
-    max-width: 600px;
+    max-width: 800px;
     line-height: 20px;
     transform: translateY(50px);
     transition: all 2s;
     transition-delay: 200ms;
     opacity: 0;
     visibility: hidden;
-    animation: land 2s 400ms backwards;
+    animation: land 2s 800ms backwards;
 }
 .act .contant p{
     opacity: 1;
@@ -141,22 +157,18 @@
     visibility: visible;
 }
 .btns1{
-    overflow: hidden;
-    animation: land 2s 600ms backwards;
+    color: var(--manin-color);
+    border: solid 1px var(--manin-color);
+    padding: 8px 15px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 500;
 }
-.btns2{
-     background-color: var(--color-blue-200);
-  border: solid 1px var(--color-blue-200);
-  padding: 6px 15px;
-  border-radius: 28px;
-  color: var(--color-white);
-  font-weight: 500;
-  position: relative;
-  z-index: 5;
-  cursor: pointer;
-  overflow: hidden;
-  animation: land 2s 600ms backwards;
+.btns1:hover{
+    background-color: var(--manin-color);
+    color: #000000;
 }
+
 
 .home-btn{
     transform: translateY(50px);
@@ -166,7 +178,12 @@
     visibility: hidden;
     margin-top: 10px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
+    animation: land 1.5s 1000ms backwards;
+}
+
+.buttonDiv{
+    animation: land 1.5s 1200ms backwards;
 }
 
 @keyframes land {
@@ -184,12 +201,12 @@
 
 .next-pvr-btn{
     z-index: 6;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    bottom: 150px;
+    /* bottom: 150px; */
     width: 100%;
 }
 .line{
@@ -224,42 +241,9 @@
     right: 20px;
 }
 
-.scial-icon{
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    align-items: end;
-    justify-content: center;
-    gap: 10px;
-    padding: 10px;
-}
-.scial-icon a{
-    color: #fff;
-}
-.scial-icon a:hover{
-    color: blanchedalmond;
-}
 
 
-.follow{
-    width: 1px;
-    height: 50px;
-    background-color: #fff;
-}
-.icon-wrap{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 3;
-    animation: land 1.5s 600ms backwards;
-}
-.icon-wrap p{
-    color: #fff;
-    transform: rotate(90deg);
-    margin-bottom: 20px;
 
-}
 
 @media (max-width: 768px){
     .contant h1{
