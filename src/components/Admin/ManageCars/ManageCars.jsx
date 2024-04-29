@@ -2,9 +2,9 @@ import React, {useState} from 'react'
 import { Search } from 'lucide-react';
 // import PopUp from './PopUp';
 import Topbar from '../SlidBar/Topbar';
-import { Trash2, SquareArrowOutUpRight, Edit, Plus } from 'lucide-react';
+import { Trash2, SquareArrowOutUpRight, Edit, Plus, Dot } from 'lucide-react';
 import Form from './Form';
-import  { tabel } from '../../../data'
+import  { cars } from '../../../data'
 
 function ManageCars() {
   
@@ -19,10 +19,10 @@ function ManageCars() {
   }
 
   return (
-    <div className='min-width flex absolute h-auto right-0 justify-center px-16 max-lg:px-2  bg-slate-200'>
+    <div className='min-width flex absolute min-h-screen right-0 justify-center px-16 max-lg:px-2  bg-slate-200'>
       <Topbar title={"Manage Cars"} />
 
-      <div className="p-8 px-16 max-lg:px-2 my-36 bg-white relative scrollbar-track-rounded-full scrollbar  scrollbar-thumb-slate-300 scrollbar-track-slate-50 overflow-x-auto  shadow-md rounded-lg ">
+      <div className="min-w-full p-8 px-16 max-lg:px-2 my-36 bg-white relative scrollbar-track-rounded-full scrollbar  scrollbar-thumb-slate-300 scrollbar-track-slate-50 overflow-x-auto  flex flex-col flex-wrap gap-4 shadow-md rounded-lg ">
           <div className=" w-full flex mt-6 flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
               
               <label  className="sr-only">Search</label>
@@ -37,26 +37,18 @@ function ManageCars() {
                 Add New Car
               </button>
           </div>
-          <table className=" w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          {/* <table className=" w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
-                      {/* <th scope="col" className="p-4">
-                          <div className="flex items-center">
-                              <input id="checkbox-all-search" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                              <label htmlFor="checkbox-all-search" className="sr-only">checkbox</label>
-                          </div>
-                      </th> */}
+                      
                       <th scope="col" className="px-6 py-3">
                           Product name
                       </th>
-                      {/* <th scope="col" className="px-6 py-3">
-                          Product name
-                      </th> */}
                       <th scope="col" className="px-12 py-3">
-                          Color
+                        Category
                       </th>
                       <th scope="col" className="px-12 py-3">
-                          Category
+                          Brand
                       </th>
                       <th scope="col" className="px-12 py-3">
                           Price
@@ -74,26 +66,19 @@ function ManageCars() {
                   </tr>
               </thead>
               <tbody>
-                  {tabel.map(items=>{
+                  {cars.map(items=>{
                     return<tr key={items.id}  className="cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    {/* <td className="w-4 p-4">
-                        <div className="flex items-center">
-                            <input id="checkbox-table-search-1" type="checkbox" className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                            <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                        </div>
-                    </td> */}
+                    
                     <th scope="row" className="capitalize flex gap-3 items-center px-6 py-4 text-base font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                      <img className="w-10 h-10 rounded-full" src={items.featuredImage} alt="Rounded avatar" />
-                      {items.name}
+                      <img className="w-10 h-10 rounded-full" src={items.url} alt="Rounded avatar" />
+                      {items.car_name}
                     </th>
-                    {/* <th scope="row" className="px-6 py-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        {items.name}
-                    </th> */}
+                    
                     <td className="px-12 py-4">
-                      {items.brand}
+                      {items.car_category}
                     </td>
                     <td className="px-12 py-4">
-                    {items.productCategory}
+                    {items.brand}
                     </td>
                     <td className="px-12 py-4">
                      $ {items.basePrice}
@@ -112,7 +97,42 @@ function ManageCars() {
 
                   )}
               </tbody>
-          </table>
+          </table> */}
+          {cars.map(items=>{
+            return<div className='border rounded-md p-3 bg-slate-50 flex gap-10'>
+            <div>
+                <img className='w-52 aspect-[3/2.5] object-cover rounded-md' src={items.url} alt="" />
+            </div>
+            <div className='flex flex-col w-full'>
+                <h1 className='font-bold text-2xl text'>{items.car_name}</h1>
+                <div className='numberFont flex gap-0  font-normal text-gray-500'>
+                    {/* <Dot /> */}
+                    <span>brand</span>
+                    <Dot />
+                    <span>Category</span>
+                    <Dot />
+                    <span>Coler</span>
+                    <Dot />
+                    <span>2023</span>
+                </div>
+                <div className='flex justify-between items-end mt-7'>
+                    <div className='flex items-center gap-3 '>
+                        <img class="w-10 h-10 rounded object-contain border p-1" src="https://www.carandbike.com/_next/image?url=https%3A%2F%2Fc.ndtvimg.com%2F2022-01%2Fm3q8gub8_car_625x300_11_January_22.jpg&w=750&q=75" alt="" />
+                        <div>
+                            <h4 className='text-base font-semibold'>Car brand and category </h4>
+                            <h4 className='text-sm font-normal'>And category </h4>
+                        </div>
+                    </div>
+                    <h4 className='numberFont text-tremor-content-strong text-tremor-title font-semibold'>$ 2256 <span>/Day</span></h4>
+                    <div className='flex gap-5'>
+                        <button className='bg-blue-200 py-1 px-3 rounded text-blue-800 font-semibold hover:bg-blue-300 flex gap-2 items-center justify-center'><Trash2 size={20} strokeWidth={1.5}/>View</button>
+                        <button className='bg-blue-200 py-1 px-3 rounded text-blue-800 font-semibold hover:bg-blue-300 flex gap-2 items-center justify-center'><Trash2 size={20} strokeWidth={1.5}/>View</button>
+                        <button className='bg-blue-200 py-1 px-3 rounded text-blue-800 font-semibold hover:bg-blue-300 flex gap-2 items-center justify-center'><Trash2 size={20} strokeWidth={1.5}/>View</button>
+                    </div>
+                </div>
+            </div>
+          </div>
+          })}
       </div>
       {/* {open && <PopUp data={open} data2={setOpen} />} */}
       {form && <Form data={form} data2={setForm}/>}
