@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-    <BrowserRouter>
+    <BrowserRouter basename="/tiba">
       <Routes>
         <Route exact path='/'  element={<Home/>} />
         <Route  path='/about'  element={<AboutPage />} />
