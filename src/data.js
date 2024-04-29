@@ -991,5 +991,65 @@ export const user= [
         "year": 2020,
         "brand": "Chevrolet",
         "rent_rate": 85
+      },
+      {
+        "id": 11,
+        "car_name": "Toyota Corolla",
+        "car_category": "sedans",
+        "mileage": "32 mpg",
+        "type": "petrol",
+        "seating_capacity": 5,
+        "year": 2023,
+        "brand": "Toyota",
+        "rent_rate": 50,
+        "url": "https://www.usnews.com/object/image/0000018c-5f0b-dc6c-aded-ffbf2d960000/https-cars-dms-usnews-com-static-uploads-images-auto-custom-15294-original-2024-toyota-corolla-angular-front-1.jpg?update-time=1693333947000&size=responsive640"
+      },
+      {
+        "id": 12,
+        "car_name": "Jeep Grand Cherokee",
+        "car_category": "SUV",
+        "mileage": "25 mpg",
+        "type": "petrol",
+        "seating_capacity": 5,
+        "year": 2022,
+        "brand": "Jeep",
+        "rent_rate": 70,
+        "url": "https://automaxgroup.me/wp-content/uploads/2023/08/2024-Jeep-Grand-Cherokee-4xe.jpg.webp"
+      },
+      {
+        "id": 13,
+        "car_name": "Volkswagen Polo",
+        "car_category": "Hatchbacks",
+        "mileage": "28 mpg",
+        "type": "diesel",
+        "seating_capacity": 5,
+        "year": 2024,
+        "brand": "Volkswagen",
+        "rent_rate": 45,
+        "url": "https://images.hindustantimes.com/auto/img/2021/04/26/1600x900/EzgjNQxWUAAJICP_1619065674815_1619424153141.jpeg"
+      },
+      {
+        "id": 14,
+        "car_name": "Mercedes-Benz Sprinter",
+        "car_category": "Van",
+        "mileage": "22 mpg",
+        "type": "diesel",
+        "seating_capacity": 12,
+        "year": 2023,
+        "brand": "Mercedes-Benz",
+        "rent_rate": 90,
+        "url": "https://www.alainclass.com/wp-content/uploads/2020/10/2016-Mercedes-Benz-Sprinter-by-Dizayn-VIP-BLACK-3832-47.jpg"
+      },
+      {
+        "id": 15,
+        "car_name": "Audi A5",
+        "car_category": "Coupes",
+        "mileage": "27 mpg",
+        "type": "petrol",
+        "seating_capacity": 4,
+        "year": 2024,
+        "brand": "Audi",
+        "rent_rate": 80,
+        "url": "https://cdni.autocarindia.com/ExtraImages/20190909034743_audi_a5_sportback_2019_1.jpg"
       }
   ]

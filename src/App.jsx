@@ -14,6 +14,7 @@ import Manageadmin from "./components/Admin/ManageAdmin/Manageadmin";
 import Settings from "./components/Admin/Settings/Settings";
 import Enquiries from "./components/Admin/Enquirie/Enquiries";
 import Contactpage from "./pages/Contactpage";
+import CarsList from "./pages/CarsList";
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
         <Route  path='/about'  element={<AboutPage />} />
         <Route  path='/contact'  element={<Contactpage />} />
         <Route  path='/login'  element={<Login/>} />
+        <Route  path='/carlist'  element={<CarsList />} />
         <Route  path='/admin/'  element={<Admin /> } >
            <Route  path="dashboard"  element={<Dashbord />} />
            <Route  path="order"  element={<Order />} />
