@@ -48,7 +48,7 @@ function Settings() {
             {/* <!-- End Col --> */}
 
             <div className="sm:col-span-3">
-              <label for="af-account-full-name" className="inline-block text-sm text-gray-800 mt-2.5">
+              <label htmlFor="af-account-full-name" className="inline-block text-sm text-gray-800 mt-2.5">
                 Full name
               </label>
               <div className="hs-tooltip inline-block relative">
@@ -71,7 +71,7 @@ function Settings() {
             {/* <!-- End Col --> */}
 
             <div className="sm:col-span-3">
-              <label for="af-account-email" className="inline-block text-sm text-gray-800 mt-2.5">
+              <label htmlFor="af-account-email" className="inline-block text-sm text-gray-800 mt-2.5">
                 Email
               </label>
             </div>
@@ -83,7 +83,7 @@ function Settings() {
             {/* <!-- End Col --> */}
 
             <div className="sm:col-span-3">
-              <label for="af-account-password" className="inline-block text-sm text-gray-800 mt-2.5">
+              <label htmlFor="af-account-password" className="inline-block text-sm text-gray-800 mt-2.5">
                 Password
               </label>
             </div>
@@ -97,7 +97,7 @@ function Settings() {
             {/* <!-- End Col --> */}
 
             <div className="sm:col-span-3">
-              <label for="af-account-password" className="inline-block text-sm text-gray-800 mt-2.5">
+              <label htmlFor="af-account-password" className="inline-block text-sm text-gray-800 mt-2.5">
                 Location
               </label>
             </div>

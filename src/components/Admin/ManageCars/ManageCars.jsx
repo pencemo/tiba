@@ -37,7 +37,7 @@ function ManageCars() {
                 Add New Car
               </button>
           </div>
-          {/* <table className=" w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <table className=" w-full mt-3 text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                   <tr>
                       
@@ -70,7 +70,7 @@ function ManageCars() {
                     return<tr key={items.id}  className="cursor-pointer bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     
                     <th scope="row" className="capitalize flex gap-3 items-center px-6 py-4 text-base font-semibold text-gray-900 whitespace-nowrap dark:text-white">
-                      <img className="w-10 h-10 rounded-full" src={items.url} alt="Rounded avatar" />
+                      <img className="w-20 aspect-[4/3] object-cover rounded-md" src={items.url} alt="Rounded avatar" />
                       {items.car_name}
                     </th>
                     
@@ -80,8 +80,8 @@ function ManageCars() {
                     <td className="px-12 py-4">
                     {items.brand}
                     </td>
-                    <td className="px-12 py-4">
-                     $ {items.basePrice}
+                    <td className="px-12 py-4 numberFont text-base">
+                     $ {items.rent_rate}
                     </td>
                     
                     <td className="px-12 py-4">
@@ -97,8 +97,8 @@ function ManageCars() {
 
                   )}
               </tbody>
-          </table> */}
-          {cars.map(items=>{
+          </table>
+          {/* {cars.map(items=>{
             return<div className='border rounded-md p-3 bg-slate-50 flex gap-10'>
             <div>
                 <img className='w-52 aspect-[3/2.5] object-cover rounded-md' src={items.url} alt="" />
@@ -106,7 +106,6 @@ function ManageCars() {
             <div className='flex flex-col w-full'>
                 <h1 className='font-bold text-2xl text'>{items.car_name}</h1>
                 <div className='numberFont flex gap-0  font-normal text-gray-500'>
-                    {/* <Dot /> */}
                     <span>brand</span>
                     <Dot />
                     <span>Category</span>
@@ -132,7 +131,7 @@ function ManageCars() {
                 </div>
             </div>
           </div>
-          })}
+          })} */}
       </div>
       {/* {open && <PopUp data={open} data2={setOpen} />} */}
       {form && <Form data={form} data2={setForm}/>}

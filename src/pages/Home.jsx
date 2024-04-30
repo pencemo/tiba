@@ -6,6 +6,7 @@ import Landbg from '../components/LandBg/Landbg'
 import LogoScroll from '../components/LogoScroll/LogoScroll'
 import Navbar from '../components/Navbar/Navbar'
 import React from 'react'
+import Status from '../components/Status/Status'
 
 function Home() {
   return (
@@ -16,6 +17,7 @@ function Home() {
       <Features />
       <Icons />
       <Card />
+      <Status />
       <Footer />
     </div>
   )

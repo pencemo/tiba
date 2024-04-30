@@ -36,7 +36,7 @@ function Cars() {
                 
                 <Select  defaultValue="" onValueChange={setBrand}>
                 <SelectItem value="">All</SelectItem>
-                    {uniqueBrand.map((item, index)=>{
+                    {uniqueBrand.map((item, index)=>{ 
                         return<SelectItem key={index} value={item}>{item}</SelectItem>
                     })}
                     
