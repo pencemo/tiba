@@ -29,6 +29,7 @@ function Footer() {
                 <p><Link  class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" to='/cars'>Car list</Link></p>
                 <p><Link  class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" to='/gallery'>Gallery</Link></p>
                 <p><Link  class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" to='/contact'>Contact</Link></p>
+                <p><Link  class="inline-flex gap-x-2 text-gray-400 hover:text-gray-200" to='/login'>Login</Link></p>
                 </div>
             </div>
             {/* <!-- End Col --> */}
