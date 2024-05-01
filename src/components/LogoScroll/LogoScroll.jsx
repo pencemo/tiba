@@ -10,7 +10,7 @@ import logo7 from '../../assets/brand/brand-logo (7).png'
 import logo8 from '../../assets/brand/brand-logo (8).png'
 import logo9 from '../../assets/brand/brand-logo (9).png'
 // import logo10 from '../../assets/brand/brand-logo (1).webp'
-import logo11 from '../../assets/brand/brand-logo (2).webp'
+// import logo11 from '../../assets/brand/brand-logo (2).webp'
 import logo12 from '../../assets/brand/brand-logo (12).png'
 import logo13 from '../../assets/brand/brand-logo (10).png'
 import logo14 from '../../assets/brand/brand-logo (11).png'
@@ -18,7 +18,7 @@ import logo15 from '../../assets/brand/brand-logo-(13).png'
 
 function LogoScroll() {
 
-    const logos=[logo1, logo2, logo9, logo3, logo4, logo5, logo14, logo7, logo8, logo6, logo12, logo11, logo13, logo15,]
+    const logos=[logo1, logo2, logo9, logo3, logo4, logo5, logo14, logo7, logo8, logo6, logo12, logo13, logo15,]
   
   return (
     

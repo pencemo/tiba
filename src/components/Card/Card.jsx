@@ -47,10 +47,10 @@ function Card() {
       >
         {cars.map((item)=>{
             return <SwiperSlide key={item.id} className=''>
-                <div class=" max-w-80 mx-auto flex flex-col  border shadow-sm rounded-xl bg-neutral-800 border-neutral-700 dark:shadow-neutral-700/70">
-                    <img class=" w-full h-56 object-cover rounded-t-xl" src={item.url} alt="Image Description" />
-                    <div class="p-4 md:p-5">
-                        <h3 class="text-lg font-bold  text-white"> {item.car_name} </h3>
+                <div className=" max-w-80 mx-auto flex flex-col  border shadow-sm rounded-xl bg-neutral-800 border-neutral-700 dark:shadow-neutral-700/70">
+                    <img className=" w-full h-56 object-cover rounded-t-xl" src={item.url} alt="Image Description" />
+                    <div className="p-4 md:p-5">
+                        <h3 className="text-lg font-bold  text-white"> {item.car_name} </h3>
                         <h4 className="text-tremor-default text-gray-300  ">{item.brand} | {item.car_category} </h4>
                         <div className='flex gap-5 my-3'>
                             <h4 className="flex items-center gap-3 text-tremor-default text-dark-tremor-content-emphasis text-uppercase "><Armchair strokeWidth={1.25} />{item.seating_capacity}</h4>
@@ -58,7 +58,7 @@ function Card() {
                         </div>
                         <div className='flex items-center justify-between'>
                             <p className="text-2xl numberFont text-dark-tremor-content-strong font-semibold">$ {item.rent_rate}</p>
-                            <a class="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50 disabled:pointer-events-none" href="#">Book Now</a>
+                            <a className="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-purple-600 text-white hover:bg-purple-700 disabled:opacity-50 disabled:pointer-events-none" href="#">Book Now</a>
                         </div>
                     </div>
                     </div>
