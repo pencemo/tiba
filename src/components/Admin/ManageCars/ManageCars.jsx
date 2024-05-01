@@ -116,7 +116,7 @@ function ManageCars() {
                 </div>
                 <div className='flex justify-between items-end mt-7'>
                     <div className='flex items-center gap-3 '>
-                        <img class="w-10 h-10 rounded object-contain border p-1" src="https://www.carandbike.com/_next/image?url=https%3A%2F%2Fc.ndtvimg.com%2F2022-01%2Fm3q8gub8_car_625x300_11_January_22.jpg&w=750&q=75" alt="" />
+                        <img className="w-10 h-10 rounded object-contain border p-1" src="https://www.carandbike.com/_next/image?url=https%3A%2F%2Fc.ndtvimg.com%2F2022-01%2Fm3q8gub8_car_625x300_11_January_22.jpg&w=750&q=75" alt="" />
                         <div>
                             <h4 className='text-base font-semibold'>Car brand and category </h4>
                             <h4 className='text-sm font-normal'>And category </h4>
