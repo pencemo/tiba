@@ -49,3 +49,17 @@ body{
         padding: 0 10px;
     }
 }
+
+.cardStyle{
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.carListView{
+    width: calc(100% - 384px);
+}
+@media (max-width: 1024px){
+    .carListView{
+        width: 100%;
+    }
+
+}
