@@ -44,7 +44,9 @@ function App() {
         <Route  path='/about'  element={<AboutPage />} />
         <Route  path='/contact'  element={<Contactpage />} />
         <Route  path='/login'  element={<Login/>} />
-        <Route  path='/carlist'  element={<CarsList />} />
+        <Route  path='/carlist'  element={<CarsList />} >
+          
+        </Route>
         <Route  path='/gallery'  element={<GalleryPage />} />
         <Route  path='/admin/'  element={<Admin /> } >
            <Route  path="dashboard"  element={<Dashbord />} />
