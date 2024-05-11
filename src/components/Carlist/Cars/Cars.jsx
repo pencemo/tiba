@@ -1,12 +1,12 @@
 import React, {useState} from 'react'
 import { cars } from '../../../data'
-// import { Armchair, Fuel } from 'lucide-react'
-import { Select, SelectItem, Divider  } from '@tremor/react';
+import { Select, SelectItem } from '@tremor/react';
 import BookForm from './BookForm';
-import { SlidersHorizontal, ChevronDown, LayoutGrid, LayoutList, CarFront, Calendar , Search  } from 'lucide-react';
+import { SlidersHorizontal, ChevronDown, LayoutGrid, LayoutList, Search } from 'lucide-react';
 import { PiSteeringWheelLight, PiPoliceCarLight  } from "react-icons/pi";
-import { BsFuelPump } from "react-icons/bs";
 import { IoDiamondOutline } from "react-icons/io5";
+import CarGrid from './CarGrid/CarGrid';
+import CarLists from './CarGrid/CarLists';
 
 
 
@@ -25,7 +25,7 @@ function Cars() {
 
     const [iscDrop, setCDrop] = useState(false);
     const [isbDrop, setBDrop] = useState(true);
-    const [isGrid, setGrid] = useState(false);
+    const [isGrid, setGrid] = useState(true);
     const [isFilterBox, setFilterBox] = useState(false);
 
     // brand filter handle 
@@ -78,8 +78,11 @@ function Cars() {
 
                     <div className='relative w-full '>
                         <Search  className='absolute top-[50%] translate-y-[-50%] left-5 text-gray-500' strokeWidth={1.2} size={26} />
+                        <div className='absolute right-2 top-[50%] translate-y-[-50%] lg:hidden hover:bg-slate-50 p-1 ' onClick={()=>setFilterBox(!isFilterBox)}>
+                            <SlidersHorizontal />
+                        </div>
                         <input onChange={e => setSearchQuery(e.target.value)} type="text"
-                        className="py-3 px-4 pl-16 placeholder:font-normal block w-full border-gray-200 rounded-lg text-lg font-semibold text-neutral-800 focus:border-blue-500 focus:ring-blue-500 bg-gray-100" placeholder="Search..."></input>
+                        className="py-3 px-4 pl-16 max-sm:py-2 placeholder:font-normal block w-full border-gray-200 rounded-lg text-lg font-semibold text-neutral-800 focus:border-blue-500 focus:ring-blue-500 bg-gray-100" placeholder="Search..."></input>
                     </div>
                     <div className='flex gap-4 max-lg:hidden'>
                         <LayoutGrid onClick={()=>{setGrid(true)}} strokeWidth={1.5} className='text-neutral-500 border border-neutral-400 rounded-lg cursor-pointer w-10 h-10 p-1' />
@@ -87,66 +90,12 @@ function Cars() {
                     </div>
 
                 </div>
-                <div className='lg:hidden hover:bg-slate-50 p-2 ' onClick={()=>setFilterBox(!isFilterBox)}>
-                    <SlidersHorizontal />
-                </div>
             </div>
             
         
-        
-            {isGrid ? <div className='grid cardStyle gap-6'>
-                {filteredData.map(item=>{
-                    return<div key={item.id} className="p-2 max-w-96 mx-auto flex flex-col  border shadow-sm rounded-xl bg-slate-100 border-neutral-100 shadow-salt-800/70">
-                    <img className="hover:scale-105 transition-all duration-100 w-full max-w-72 h-48  object-cover rounded-t-xl" src={item.url} alt="Image Description" />
-                    <div className="p-4 md:p-5">
-                        <h3 className="text-lg font-bold  text-black"> {item.car_name} </h3>
-                        <h4 className="text-tremor-default text-gray-600  ">{item.brand} | {item.car_category} </h4>
-                        {/* <div className='flex gap-5 my-3'>
-                            <h4 className="flex items-center gap-3 text-tremor-default text-dark-tremor-content-emphasis text-uppercase "><Armchair strokeWidth={1.25} />{item.seating_capacity}</h4>
-                            <h4 className="flex items-center gap-3 text-tremor-default text-dark-tremor-content-emphasis text-uppercase "><Fuel strokeWidth={1.25} />{item.type}</h4>
-                        </div> */}
-                        <div className='flex items-center justify-between mt-5'>
-                            <p className="text-2xl numberFont text-neutral-600 font-bold">${item.rent_rate} <span className='text-base font-normal'>/ Day</span></p>
-                            <button onClick={()=>handlClickBook(item.id)} className="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-700 hover:bg-blue-300 disabled:opacity-50 disabled:pointer-events-none" href="#">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-                })}
-            </div> : <div className='flex flex-col gap-3'>
-                {filteredData.map(item=>{
-                    return<div key={item.id} className="flex flex-wrap w-full gap-8 bg-slate-100 p-3 rounded-lg shadow">
-                        <img src={item.url} alt="carImage" className='w-80 aspect-[5/3] object-cover rounded-md' />
-                        <div className='flex flex-col justify-around'>
-                            <div>
-                                <h3 className="text-3xl font-bold  text-neutral-700"> {item.car_name} </h3>
-                                <h4 className="text-tremor-default text-neutral-600  ">{item.brand} | {item.car_category} </h4>
-                            </div>
-                            <div className='flex numberFont'>
-                                <div className='flex flex-col gap-2 items-center border-r-2 pr-8' >
-                                    <CarFront strokeWidth={1.25} className='text-blue-600' />
-                                    <h4 className="font-semibold uppercase text-base text-neutral-900  ">{item.brand} </h4>
-                                </div>
-                                <div className='flex flex-col gap-2 items-center border-r-2 px-8' >
-                                    <PiSteeringWheelLight size={25} className='text-blue-600' />
-                                    <h4 className="font-semibold uppercase text-base text-neutral-900  ">{item.mileage} </h4>
-                                </div>
-                                <div className='flex flex-col gap-2 items-center border-r-2 px-8' >
-                                    <BsFuelPump size={23} className='text-blue-600' />
-                                    <h4 className="font-semibold uppercase text-base text-neutral-900  ">{item.type} </h4>
-                                </div>
-                                <div className='flex flex-col gap-2 items-center  px-8' >
-                                    <Calendar strokeWidth={1.25} size={23} className='text-blue-600' />
-                                    <h4 className="font-semibold uppercase text-base text-neutral-900  ">{item.year} </h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div className=''>
-                            <button onClick={()=>handlClickBook(item.id)} className="mt-2 py-2 px-3 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-700 hover:bg-blue-300 disabled:opacity-50 disabled:pointer-events-none" href="#">Book Now</button>
-                        </div>
-                    
-                </div>
-                })}
-            </div>}
+            {isGrid ? <CarGrid filteredData={filteredData} handlClickBook={handlClickBook}/>
+            : <CarLists filteredData={filteredData} handlClickBook={handlClickBook} />}
+            
         </div>
 
         {/* filete section */}
@@ -156,11 +105,12 @@ function Cars() {
                 <h1 className='font-medium text-lg numberFont'>Filter Cars <span className='text-neutral-600 font-bold '>{filteredData.length} </span></h1>
                 <SlidersHorizontal strokeWidth={1.5} onClick={()=>setFilterBox(!isFilterBox)} className='max-lg:text-black' />
             </div>
+
             <div className='flex gap-3 my-4 lg:hidden items-center bg-slate-100 p-1 rounded-md'>
-                        <LayoutGrid onClick={()=>{setGrid(true)}} strokeWidth={1.5} className='text-neutral-600  rounded-lg cursor-pointer w-10 h-10 p-1' />
-                        <LayoutList onClick={()=>{setGrid(false)}} strokeWidth={1.5} className='text-neutral-600  rounded-lg cursor-pointer w-10 h-10 p-1' />
-                        <h1 className='font-medium text-lg'>Layout view</h1>
-                    </div>
+                <LayoutGrid onClick={()=>{setGrid(true)}} strokeWidth={1.5} className='text-neutral-600  rounded-lg cursor-pointer w-10 h-10 p-1' />
+                <LayoutList onClick={()=>{setGrid(false)}} strokeWidth={1.5} className='text-neutral-600  rounded-lg cursor-pointer w-10 h-10 p-1' />
+                <h1 className='font-medium text-lg'>Layout view</h1>
+            </div>
 
             {/* Filter Category */}
             
@@ -263,11 +213,6 @@ function Cars() {
                         id="max-range" type="range"  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer" />
                 </div>
             </div>
-
-
-
-
-           
 
         </div>
 
