@@ -16,6 +16,7 @@ import Enquiries from "./components/Admin/Enquirie/Enquiries";
 import Contactpage from "./pages/Contactpage";
 import CarsList from "./pages/CarsList";
 import GalleryPage from "./pages/GalleryPage";
+import CarDetails from "./pages/CarDetails";
 
 
 function App() {
@@ -44,9 +45,8 @@ function App() {
         <Route  path='/about'  element={<AboutPage />} />
         <Route  path='/contact'  element={<Contactpage />} />
         <Route  path='/login'  element={<Login/>} />
-        <Route  path='/carlist'  element={<CarsList />} >
-          
-        </Route>
+        <Route  path='/carlist'  element={<CarsList />} />
+        <Route  path='/cardetails/:carName'  element={<CarDetails />} />
         <Route  path='/gallery'  element={<GalleryPage />} />
         <Route  path='/admin/'  element={<Admin /> } >
            <Route  path="dashboard"  element={<Dashbord />} />
